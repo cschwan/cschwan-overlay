@@ -1,0 +1,10 @@
+# ChangeLog for app-cdr/mkcue
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*mkcue-1 (13 Aug 2011)
+
+  13 Aug 2011; Christopher Schwan <cschwan@students.uni-mainz.de>
+  +mkcue-1.ebuild, +metadata.xml:
+  New ebuild
+
