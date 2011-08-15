@@ -1,0 +1,10 @@
+# ChangeLog for kde-misc/ktikz
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*ktikz-0.10 (15 Aug 2011)
+
+  15 Aug 2011; Christopher Schwan <cschwan@students.uni-mainz.de>
+  +ktikz-0.10.ebuild, +metadata.xml:
+  New ebuild based upon bug #236750
+
