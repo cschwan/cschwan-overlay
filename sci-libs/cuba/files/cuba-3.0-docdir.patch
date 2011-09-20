@@ -1,0 +1,76 @@
+--- makefile.in.orig	2011-08-12 10:16:24.000000000 +0000
++++ makefile.in	2011-09-20 09:08:42.736004554 +0000
+@@ -9,6 +9,7 @@
+ INSTALL_PROGRAM = @INSTALL_PROGRAM@
+ RANLIB = @RANLIB@
+ EXE = @EXEEXT@
++PACKAGE_TARNAME = @PACKAGE_TARNAME@
+ 
+ prefix = @prefix@
+ exec_prefix = @exec_prefix@
+@@ -18,6 +19,7 @@
+ includedir = @includedir@
+ datarootdir = @datarootdir@
+ datadir = @datadir@
++docdir = @docdir@
+ 
+ MATH_DEFAULT = @MATH_DEFAULT@
+ TOOLS_DEFAULT = @TOOLS_DEFAULT@
+@@ -50,7 +52,7 @@
+ 	$(INSTALL) -m 755 -d $(DESTDIR)$(libdir) \
+ 	                     $(DESTDIR)$(includedir) \
+ 	                     $(DESTDIR)$(bindir) \
+-	                     $(DESTDIR)$(datadir)
++	                     $(DESTDIR)$(docdir)
+ 	$(INSTALL_DATA) $(LIB) $(DESTDIR)$(libdir)
+ 	for f in $(HEADERS) ; do \
+ 	  $(INSTALL_DATA) `test -f $$f || echo $(srcdir)/`$$f $(DESTDIR)$(includedir); \
+@@ -58,7 +60,7 @@
+ 	for f in $(MATH) $(TOOLS) ; do \
+ 	  test -f $$f && $(INSTALL_PROGRAM) $$f $(DESTDIR)$(bindir) || : ; \
+ 	done
+-	$(INSTALL_DATA) $(srcdir)/cuba.pdf $(DESTDIR)$(datadir)
++	$(INSTALL_DATA) $(srcdir)/cuba.pdf $(DESTDIR)$(docdir)
+ 
+ 
+ check: demo-c
+@@ -111,7 +113,6 @@
+ 
+ Vegas$(EXE): $(VEGAS_TM) $(VEGAS_DEPS) $(COMMON_TMDEPS)
+ 	$(MCC) $(MCFLAGS) $(CFLAGS) -I$(vegas) -o Vegas$(EXE) $(VEGAS_TM)
+-	strip Vegas$(EXE)
+ 
+ 
+ SUAVE_C = $(suave)/Suave.c
+@@ -144,7 +145,6 @@
+ 
+ Suave$(EXE): $(SUAVE_TM) $(SUAVE_DEPS) $(COMMON_TMDEPS)
+ 	$(MCC) $(MCFLAGS) $(CFLAGS) -I$(suave) -o Suave$(EXE) $(SUAVE_TM)
+-	strip Suave$(EXE)
+ 
+ 
+ DIVONNE_C = $(divonne)/Divonne.c
+@@ -178,7 +178,6 @@
+ 
+ Divonne$(EXE): $(DIVONNE_TM) $(DIVONNE_DEPS) $(COMMON_TMDEPS)
+ 	$(MCC) $(MCFLAGS) $(CFLAGS) -I$(divonne) -o Divonne$(EXE) $(DIVONNE_TM)
+-	strip Divonne$(EXE)
+ 
+ 
+ CUHRE_C = $(cuhre)/Cuhre.c
+@@ -210,7 +209,6 @@
+ 
+ Cuhre$(EXE): $(CUHRE_TM) $(CUHRE_DEPS) $(COMMON_TMDEPS)
+ 	$(MCC) $(MCFLAGS) $(CFLAGS) -I$(cuhre) -o Cuhre$(EXE) $(CUHRE_TM)
+-	strip Cuhre$(EXE)
+ 
+ 
+ $(LIB): $(LIB)(Vegas.o)     $(LIB)(Vegas_.o)     \
+@@ -242,7 +240,6 @@
+ partview$(EXE): $(PARTVIEW)
+ 	qmake -o makefile.partview $(tools)/partview.pro
+ 	$(MAKE) -f makefile.partview
+-	strip partview$(EXE)
+ 
+ 
+ TARCONTENTS = $(srcdir)/COPYING $(srcdir)/ChangeLog \

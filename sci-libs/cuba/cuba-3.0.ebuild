@@ -23,3 +23,5 @@ DEPEND=""
 RDEPEND=""
 
 S="${WORKDIR}/${MY_P}"
+
+PATCHES=( "${FILESDIR}"/${P}-docdir.patch )
