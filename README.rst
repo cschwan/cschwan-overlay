@@ -2,7 +2,7 @@ DESCRIPTION
 ===========
 
 This is my personal overlay. It contains ebuilds and their dependencies for the
-following programs:
+following programs and libraries:
 
   - app-cdr/mkcue: This is needed for CUE file creation compatible with
     media-sound/abcde
@@ -10,4 +10,5 @@ following programs:
   - dev-tex/biblatex-biber: Perl-based biblatex replacement for use with
     biblatex
   - kde-misc/ktikz: KDE drawing program for TikZ graphics
+  - sci-libs/cuba: Library offering several Monte Carlo Integrators
   - sci-physics/form: CAS intended for QFT calculations
