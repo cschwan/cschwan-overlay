@@ -2,6 +2,10 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Oct 2011; Christopher Schwan <cschwan@students.uni-mainz.de>
+  form-9999.ebuild:
+  Fixed implicit USE=debug, wrong description and homepage
+
 *form-9999 (15 Aug 2011)
 
   15 Aug 2011; Christopher Schwan <cschwan@students.uni-mainz.de>
