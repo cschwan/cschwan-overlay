@@ -34,8 +34,10 @@ RDEPEND="dev-perl/config-general
 	dev-perl/Readonly-XS
 	>=dev-perl/Unicode-Collate-0.74
 	dev-perl/XML-LibXML-Simple
+	dev-perl/XML-LibXSLT
 	>=dev-perl/Text-BibTeX-0.55
-	dev-perl/libwww-perl"
+	dev-perl/libwww-perl
+	~dev-texlive/texlive-bibtexextra-2011"
 
 S="${WORKDIR}/${PN}-v${PV}"
 
