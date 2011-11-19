@@ -11,9 +11,11 @@ their dependencies for the following programs and libraries:
   - dev-tex/biblatex-biber (`bug #340353`_): Perl-based biblatex replacement for
     use with biblatex
   - kde-misc/ktikz (`bug #236750`_): KDE drawing program for TikZ graphics
+  - media-sound/teamspeak-client-bin (`bug #368581`_): TeamSpeak 3 client
   - sci-libs/cuba: Library offering several Monte Carlo Integrators
   - sci-physics/form: CAS intended for QFT calculations
 
 .. _bug #308509: https://bugs.gentoo.org/show_bug.cgi?id=308509
 .. _bug #340353: https://bugs.gentoo.org/show_bug.cgi?id=340353
+.. _bug #368581: https://bugs.gentoo.org/show_bug.cgi?id=368581
 .. _bug #236750: https://bugs.gentoo.org/show_bug.cgi?id=236750
