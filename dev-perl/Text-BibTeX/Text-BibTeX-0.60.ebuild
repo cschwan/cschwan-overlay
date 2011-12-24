@@ -20,6 +20,7 @@ RESTRICT="mirror"
 DEPEND="virtual/perl-Module-Build
 	dev-perl/Config-AutoConf
 	dev-perl/ExtUtils-LibBuilder"
-RDEPEND="dev-perl/Capture-Tiny"
+RDEPEND="!dev-libs/btparse
+	dev-perl/Capture-Tiny"
 
 SRC_TEST="do"

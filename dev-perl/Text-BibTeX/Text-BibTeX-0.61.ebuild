@@ -21,6 +21,7 @@ DEPEND=">=virtual/perl-Module-Build-0.36.03
 	>=dev-perl/Config-AutoConf-0.16
 	>=virtual/perl-ExtUtils-CBuilder-0.27
 	>=dev-perl/ExtUtils-LibBuilder-0.02"
-RDEPEND=">=dev-perl/Capture-Tiny-0.06"
+RDEPEND="!dev-libs/btparse
+	>=dev-perl/Capture-Tiny-0.06"
 
 SRC_TEST="do"
