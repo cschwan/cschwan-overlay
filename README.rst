@@ -15,3 +15,4 @@ their dependencies for the following programs and libraries:
 
 .. _bug #340353: https://bugs.gentoo.org/show_bug.cgi?id=340353
 .. _bug #236750: https://bugs.gentoo.org/show_bug.cgi?id=236750
+.. _bug #368581: https://bugs.gentoo.org/show_bug.cgi?id=368581
