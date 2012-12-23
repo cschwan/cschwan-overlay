@@ -1,0 +1,61 @@
+--- configure.ac.orig	2012-12-23 10:25:09.000000000 +0000
++++ configure.ac	2012-12-23 11:01:53.429397262 +0000
+@@ -10,7 +10,6 @@
+ AC_ARG_VAR(MCFLAGS, [MathLink C compiler flags])
+ 
+ AC_PROG_CC
+-AC_PROG_F77
+ AC_PROG_RANLIB
+ AC_PROG_INSTALL
+ 
+@@ -58,6 +57,11 @@
+    AC_DEFINE_UNQUOTED([NCOMP], [$MAXCOMP], [Maximum number of dimensions])]
+ )
+ 
++AC_ARG_VAR([MCC], [The MathLink binary from Mathematica])
++AC_ARG_ENABLE([mathematica], AS_HELP_STRING([--enable-mathematica], [Build and install the Cuba package for Mathematica]))
++AS_IF([test "$enable_mathematica" = "xyes"], [
++AC_CHECK_PROGS([MCC], [mcc])
++
+ AC_MSG_CHECKING([for MathLink])
+ cat > conftest.tm << _EOF_
+ :Begin:
+@@ -79,19 +83,31 @@
+ FCC="$srcdir/tools/fcc"
+ rm -f conftest$EXEEXT
+ REALCC="$CC" CC="$FCC" CXX="$FCC" PATH="$PATH:$srcdir/tools" \
+-  mcc $MCFLAGS $CFLAGS -o conftest$EXEEXT conftest.tm > /dev/null 2>&1
++  $MCC $MCFLAGS $CFLAGS -o conftest$EXEEXT conftest.tm > /dev/null 2>&1
+ AS_IF([test -x conftest$EXEEXT],
+   [AC_MSG_RESULT([yes])
+    MATH_DEFAULT=math],
+-  [AC_MSG_RESULT([no])])
++  [AC_MSG_ERROR([could not compile MathLink program])])
+ AC_SUBST([MATH_DEFAULT])
++])
+ 
+-AC_CHECK_PROGS([HAVE_QMAKE], [qmake])
+-test -n "$HAVE_QMAKE" && TOOLS_DEFAULT=tools
+-AC_SUBST([TOOLS_DEFAULT])
++AC_ARG_ENABLE([qt], AS_HELP_STRING([--enable-qt], [Build and install the partition viewer. Needs Qt]))
++AS_IF([test "$enable_qt" = "xyes"], [
++AC_CHECK_PROGS([QMAKE], [qmake])
++AS_IF([test -n "$QMAKE"], [
++TOOLS_DEFAULT=tools
++AC_SUBST([TOOLS_DEFAULT])],
++AC_MSG_ERROR([qmake not found]))
++])
+ 
+-test -n "$F77" && DEMO_FORTRAN_DEFAULT=demo-fortran
+-AC_SUBST([DEMO_FORTRAN_DEFAULT])
++AC_ARG_ENABLE([demo], AS_HELP_STRING([--enable-demo], [Build the fortran demo program]))
++AS_IF([test "$enable_demo" = "xyes"], [
++AC_PROG_F77
++AS_IF([test -n "$F77"], [
++DEMO_FORTRAN_DEFAULT=demo-fortran
++AC_SUBST([DEMO_FORTRAN_DEFAULT]) ], 
++AC_MSG_ERROR([no fortran compiler found]))
++])
+ 
+ AC_CONFIG_HEADERS([config.h])
+ AC_CONFIG_FILES([makefile])
