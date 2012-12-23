@@ -13,5 +13,5 @@ their dependencies for the following programs and libraries:
   - sci-libs/cuba: Library offering several Monte Carlo Integrators
   - sci-physics/form: CAS intended for QFT calculations
 
-.. _bug #368581: https://bugs.gentoo.org/show_bug.cgi?id=368581
+.. _bug #340353: https://bugs.gentoo.org/show_bug.cgi?id=340353
 .. _bug #236750: https://bugs.gentoo.org/show_bug.cgi?id=236750
