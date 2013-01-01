@@ -1,0 +1,10 @@
+# ChangeLog for dev-perl/Mozilla-CA
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*Mozilla-CA-20120823 (01 Jan 2013)
+
+  01 Jan 2013; Christopher Schwan <cschwan@students.uni-mainz.de>
+  +Mozilla-CA-20120823.ebuild, +metadata.xml:
+  Initial import
+
