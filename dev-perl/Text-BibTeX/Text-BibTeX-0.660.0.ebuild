@@ -19,7 +19,7 @@ IUSE=""
 RESTRICT="mirror"
 
 DEPEND=">=dev-perl/Config-AutoConf-0.160.0
-	>=dev-perl/ExtUtils-LibBuilder-0.02
+	>=dev-perl/ExtUtils-LibBuilder-0.020.0
 	>=virtual/perl-ExtUtils-CBuilder-0.27
 	>=virtual/perl-Module-Build-0.36.03"
 RDEPEND="!dev-libs/btparse
