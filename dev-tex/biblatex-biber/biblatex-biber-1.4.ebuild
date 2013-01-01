@@ -35,6 +35,7 @@ RDEPEND=">=dev-lang/perl-5.14
 	dev-perl/Readonly
 	dev-perl/Readonly-XS
 	>=dev-perl/Text-BibTeX-0.660.0
+	dev-perl/URI
 	dev-perl/XML-LibXML-Simple
 	dev-perl/XML-LibXSLT
 	=dev-tex/biblatex-2.4
@@ -44,7 +45,8 @@ DEPEND="${RDEPEND}
 	virtual/perl-Module-Build"
 
 # >=dev-perl/Unicode-Collate-0.900" - is part of perl itself
-# dev-perl/List-MoreUtils - not needed ?
-# dev-perl/URI - not needed ?
+# dev-perl/ExtUtils-LibBuilder
+# dev-perl/Config-AutoConf
+# dev-perl/List-MoreUtils
 
 SRC_TEST="parallel"
