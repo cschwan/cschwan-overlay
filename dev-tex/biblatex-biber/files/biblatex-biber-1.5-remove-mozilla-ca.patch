@@ -1,0 +1,105 @@
+--- lib/Biber/Input/file/biblatexml.pm.orig	2013-01-10 19:17:24.000000000 +0000
++++ lib/Biber/Input/file/biblatexml.pm	2013-04-04 09:29:48.623656803 +0000
+@@ -81,16 +81,6 @@
+     $logger->info("Data source '$filename' is a remote .xml - fetching ...");
+     if ($1) { # HTTPS
+       # use IO::Socket::SSL qw(debug4); # useful for debugging SSL issues
+-      # We have to explicitly set the cert path because otherwise the https module
+-      # can't find the .pem when PAR::Packer'ed
+-      if (not exists($ENV{PERL_LWP_SSL_CA_FILE}) and
+-          not defined(Biber::Config->getoption('ssl-nointernalca'))) {
+-        require Mozilla::CA; # Have to explicitly require this here to get it into %INC below
+-        # we assume that the default CA file is in .../Mozilla/CA/cacert.pem
+-        (my $vol, my $dir, undef) = File::Spec->splitpath( $INC{"Mozilla/CA.pm"} );
+-        $dir =~ s/\/$//; # splitpath sometimes leaves a trailing '/'
+-        $ENV{PERL_LWP_SSL_CA_FILE} = File::Spec->catpath($vol, "$dir/CA", 'cacert.pem');
+-      }
+       if (defined(Biber::Config->getoption('ssl-noverify-host'))) {
+           $ENV{PERL_LWP_SSL_VERIFY_HOSTNAME} = 0;
+       }
+--- lib/Biber/Input/file/bibtex.pm.orig	2013-04-04 09:28:23.000000000 +0000
++++ lib/Biber/Input/file/bibtex.pm	2013-04-04 09:32:50.899654160 +0000
+@@ -123,16 +123,6 @@
+     $logger->info("Data source '$source' is a remote BibTeX data source - fetching ...");
+     if ($1) { # HTTPS
+       # use IO::Socket::SSL qw(debug99); # useful for debugging SSL issues
+-      # We have to explicitly set the cert path because otherwise the https module
+-      # can't find the .pem when PAR::Packer'ed
+-      if (not exists($ENV{PERL_LWP_SSL_CA_FILE}) and
+-          not defined(Biber::Config->getoption('ssl-nointernalca'))) {
+-        require Mozilla::CA; # Have to explicitly require this here to get it into %INC below
+-        # we assume that the default CA file is in .../Mozilla/CA/cacert.pem
+-        (my $vol, my $dir, undef) = File::Spec->splitpath( $INC{"Mozilla/CA.pm"} );
+-        $dir =~ s/\/$//; # splitpath sometimes leaves a trailing '/'
+-        $ENV{PERL_LWP_SSL_CA_FILE} = File::Spec->catpath($vol, "$dir/CA", 'cacert.pem');
+-      }
+       if (defined(Biber::Config->getoption('ssl-noverify-host'))) {
+           $ENV{PERL_LWP_SSL_VERIFY_HOSTNAME} = 0;
+       }
+--- lib/Biber/Input/file/endnotexml.pm.orig	2013-01-10 19:17:23.000000000 +0000
++++ lib/Biber/Input/file/endnotexml.pm	2013-04-04 09:30:11.782656467 +0000
+@@ -99,16 +99,6 @@
+     $logger->info("Data source '$source' is a remote EndNote XML datasource - fetching ...");
+     if ($1) { # HTTPS
+       # use IO::Socket::SSL qw(debug4); # useful for debugging SSL issues
+-      # We have to explicitly set the cert path because otherwise the https module
+-      # can't find the .pem when PAR::Packer'ed
+-      if (not exists($ENV{PERL_LWP_SSL_CA_FILE}) and
+-          not defined(Biber::Config->getoption('ssl-nointernalca'))) {
+-        require Mozilla::CA; # Have to explicitly require this here to get it into %INC below
+-        # we assume that the default CA file is in .../Mozilla/CA/cacert.pem
+-        (my $vol, my $dir, undef) = File::Spec->splitpath( $INC{"Mozilla/CA.pm"} );
+-        $dir =~ s/\/$//; # splitpath sometimes leaves a trailing '/'
+-        $ENV{PERL_LWP_SSL_CA_FILE} = File::Spec->catpath($vol, "$dir/CA", 'cacert.pem');
+-      }
+       if (defined(Biber::Config->getoption('ssl-noverify-host'))) {
+           $ENV{PERL_LWP_SSL_VERIFY_HOSTNAME} = 0;
+       }
+--- lib/Biber/Input/file/ris.pm.orig	2013-01-10 19:17:24.000000000 +0000
++++ lib/Biber/Input/file/ris.pm	2013-04-04 09:29:12.169657332 +0000
+@@ -95,16 +95,6 @@
+     $logger->info("Data source '$source' is a remote RIS data source - fetching ...");
+     if ($1) { # HTTPS
+       # use IO::Socket::SSL qw(debug4); # useful for debugging SSL issues
+-      # We have to explicitly set the cert path because otherwise the https module
+-      # can't find the .pem when PAR::Packer'ed
+-      if (not exists($ENV{PERL_LWP_SSL_CA_FILE}) and
+-          not defined(Biber::Config->getoption('ssl-nointernalca'))) {
+-        require Mozilla::CA; # Have to explicitly require this here to get it into %INC below
+-        # we assume that the default CA file is in .../Mozilla/CA/cacert.pem
+-        (my $vol, my $dir, undef) = File::Spec->splitpath( $INC{"Mozilla/CA.pm"} );
+-        $dir =~ s/\/$//; # splitpath sometimes leaves a trailing '/'
+-        $ENV{PERL_LWP_SSL_CA_FILE} = File::Spec->catpath($vol, "$dir/CA", 'cacert.pem');
+-      }
+       if (defined(Biber::Config->getoption('ssl-noverify-host'))) {
+           $ENV{PERL_LWP_SSL_VERIFY_HOSTNAME} = 0;
+       }
+--- lib/Biber/Input/file/zoterordfxml.pm.orig	2013-01-10 19:17:23.000000000 +0000
++++ lib/Biber/Input/file/zoterordfxml.pm	2013-04-04 09:30:42.361656024 +0000
+@@ -111,16 +111,6 @@
+     $logger->info("Data source '$source' is a remote Zotero RDF/XML data source - fetching ...");
+     if ($1) { # HTTPS
+       # use IO::Socket::SSL qw(debug4); # useful for debugging SSL issues
+-      # We have to explicitly set the cert path because otherwise the https module
+-      # can't find the .pem when PAR::Packer'ed
+-      if (not exists($ENV{PERL_LWP_SSL_CA_FILE}) and
+-          not defined(Biber::Config->getoption('ssl-nointernalca'))) {
+-        require Mozilla::CA; # Have to explicitly require this here to get it into %INC below
+-        # we assume that the default CA file is in .../Mozilla/CA/cacert.pem
+-        (my $vol, my $dir, undef) = File::Spec->splitpath( $INC{"Mozilla/CA.pm"} );
+-        $dir =~ s/\/$//; # splitpath sometimes leaves a trailing '/'
+-        $ENV{PERL_LWP_SSL_CA_FILE} = File::Spec->catpath($vol, "$dir/CA", 'cacert.pem');
+-      }
+       if (defined(Biber::Config->getoption('ssl-noverify-host'))) {
+           $ENV{PERL_LWP_SSL_VERIFY_HOSTNAME} = 0;
+       }
+--- Build.PL.orig	2013-04-04 09:17:31.000000000 +0000
++++ Build.PL	2013-04-04 09:17:41.950667339 +0000
+@@ -61,7 +61,6 @@
+         'Business::ISBN' => 0,
+         'Business::ISSN' => 0,
+         'Business::ISMN' => 0,
+-        'Mozilla::CA' => 0,
+         'perl' => '5.14.0'
+     },
+     recommends => {

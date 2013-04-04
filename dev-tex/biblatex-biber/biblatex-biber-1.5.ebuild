@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit perl-app
+inherit eutils perl-app
 
 DESCRIPTION="Biber is a BibTeX replacement for users of biblatex"
 HOMEPAGE="http://biblatex-biber.sourceforge.net/"
@@ -30,7 +30,6 @@ RDEPEND=">=dev-lang/perl-5.14
 	dev-perl/libwww-perl[ssl]
 	dev-perl/List-AllUtils
 	dev-perl/Log-Log4perl
-	dev-perl/Mozilla-CA
 	dev-perl/regexp-common
 	dev-perl/Readonly
 	dev-perl/Readonly-XS
@@ -50,3 +49,7 @@ DEPEND="${RDEPEND}
 # dev-perl/List-MoreUtils
 
 SRC_TEST="parallel"
+
+src_prepare() {
+	epatch "${FILESDIR}"/${PN}-1.5-remove-mozilla-ca.patch
+}

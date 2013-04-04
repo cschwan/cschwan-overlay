@@ -3,6 +3,10 @@
 # $Header: $
 
   04 Apr 2013; Christopher Schwan <cschwan@students.uni-mainz.de>
+  biblatex-biber-1.5.ebuild:
+  Remove RDEPEND on Mozilla-CA
+
+  04 Apr 2013; Christopher Schwan <cschwan@students.uni-mainz.de>
   -biblatex-biber-1.4.ebuild, biblatex-biber-1.5.ebuild:
   Remove old ebuild
 
