@@ -1,5 +1,0 @@
-*Unicode-LineBreak-2012.010.0 (03 May 2013)
-
-  03 May 2013; Christopher Schwan <cschwan@students.uni-mainz.de>
-  +Unicode-LineBreak-2012.010.0.ebuild, +metadata.xml:
-  Add Unicode-LineBreak to tree
